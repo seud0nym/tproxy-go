@@ -1,0 +1,18 @@
+{
+    "gopls": {
+        "build.buildFlags": ["-tags=linux"]
+    },
+    "cSpell.words": [
+        "dnsv",
+        "dont",
+        "dport",
+        "ebff",
+        "laddr",
+        "oobn",
+        "proto",
+        "raddr",
+        "RECVORIGDSTADDR",
+        "seud",
+        "tproxy"
+    ]
+}

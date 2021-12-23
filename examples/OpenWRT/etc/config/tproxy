@@ -1,0 +1,20 @@
+config tproxy 'config'
+        option enabled '0'
+        option verbose '1'
+
+config rule dns
+        option enabled '0'
+        option family 'ipv4'
+        option proto 'tcp udp'
+        option listenPort '8053'
+        option destIP '172.17.2.17'
+        option destPort '53'
+        option ipset '!dns_xcptn src'
+
+config rule dnsv6
+        option enabled '0'
+        option family 'ipv6'
+        option proto 'tcp udp'
+        option listenPort '8053'
+        option destIP '::1'
+        option destPort '53'

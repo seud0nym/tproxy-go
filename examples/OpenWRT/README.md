@@ -1,0 +1,1 @@
+Example config and init script for OpenWRT to intercept all IPv4/IPv6 DNS queries and handle them on a specified target DNS server.
