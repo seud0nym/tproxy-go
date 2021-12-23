@@ -4,14 +4,14 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
-	"time"
 )
 
 var (
-	appVersion = time.Now().Format("2006.01.02") + "-dev"
+	appVersion = "dev"
 	verbose    = true
 )
 
@@ -25,6 +25,7 @@ func main() {
 	flag.Parse()
 
 	if version {
+		fmt.Printf("tproxy-go v%s https://github.com/seud0nym/tproxy-go\n", appVersion)
 		os.Exit(0)
 	}
 
