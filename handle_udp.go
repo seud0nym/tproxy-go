@@ -30,10 +30,6 @@ func waitForUDPConn(network string, listener *net.UDPConn, dest string) {
 		buff := make([]byte, 1024)
 		n, srcAddr, dstAddr, err := tproxy.ReadFromUDP(listener, buff)
 		if err != nil {
-			if netErr, ok := err.(net.Error); ok && netErr.Temporary() {
-				log.Printf("ERROR: Temporary error while reading data from %s: %s", listener.LocalAddr(), netErr)
-			}
-
 			log.Fatalf("FATAL: Unrecoverable error while reading data from %s: %s", listener.LocalAddr(), err)
 			return
 		}

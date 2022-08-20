@@ -30,10 +30,6 @@ func waitForTCPConn(network string, listener net.Listener, dest string) {
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
-			if netErr, ok := err.(net.Error); ok && netErr.Temporary() {
-				log.Printf("ERROR: Temporary error while accepting connection on %s: %s", listener.Addr(), netErr)
-			}
-
 			log.Fatalf("FATAL: Unrecoverable error while accepting connection on %s: %s", listener.Addr(), err)
 			return
 		}
