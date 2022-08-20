@@ -42,7 +42,7 @@ func main() {
 			defer listener.Close()
 		}
 
-		interruptListener := make(chan os.Signal)
+		interruptListener := make(chan os.Signal, 1)
 		signal.Notify(interruptListener, os.Interrupt)
 		<-interruptListener
 		debug("Shutting down")
