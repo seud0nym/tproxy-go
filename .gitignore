@@ -1,16 +1,2 @@
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.so.[0-9]
-*.c32
-*.0
-*.bin
 tproxy-go
-
-# Packages #
-tproxy-go
+tproxy-go*.bz2
