@@ -30,8 +30,7 @@ func ListenUDP(network string, laddr *net.UDPAddr) (*net.UDPConn, error) {
 	}
 	defer fileDescriptorSource.Close()
 
-	opErr := setListenSocketOptions(int(fileDescriptorSource.Fd()), network, laddr)
-	if opErr != nil {
+	if err := setListenSocketOptions(int(fileDescriptorSource.Fd()), network, laddr); err != nil {
 		return nil, err
 	}
 
