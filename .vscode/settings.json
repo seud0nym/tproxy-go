@@ -14,5 +14,6 @@
         "RECVORIGDSTADDR",
         "seud",
         "tproxy"
-    ]
+    ],
+    "go.diagnostic.vulncheck": "Imports"
 }
