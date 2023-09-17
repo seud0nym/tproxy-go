@@ -6,6 +6,7 @@ MAKEFLAGS += --no-print-directory
 
 build: *.go go.*
 	go build ${LDFLAGS} -o ${BINARY}
+	upx --ultra-brute ${BINARY}
 
 clean:
 	rm -f ${BINARY} *.bz2
