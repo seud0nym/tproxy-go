@@ -57,10 +57,16 @@ func parseRules() ([]net.Listener, []*net.UDPConn) {
 						}
 					case "--comment":
 						tokens := strings.Split(strings.ReplaceAll(token, "\"", ""), "@")
-						if len(tokens) == 2 {
+						if len(tokens) >= 2 {
 							tproxy.destIP = net.ParseIP(tokens[1])
 							if tproxy.destIP == nil {
 								log.Fatalf("FATAL: Failed to parse destination IP from rule [%s]", line)
+							}
+							if len(tokens) >= 3 && tokens[2] != "" {
+								tproxy.destPort, err = strconv.Atoi(tokens[2])
+								if err != nil {
+									log.Fatalf("FATAL: Failed to parse target Port from rule [%s]: %s", line, err)
+								}
 							}
 						}
 					case "--on-port":

@@ -18,3 +18,4 @@ config rule dnsv6
         option listenPort '8053'
         option destIP '::1'
         option destPort '53'
+        option targetPort '53535'
