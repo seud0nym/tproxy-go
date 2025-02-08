@@ -24,14 +24,14 @@ func main() {
 	flag.BoolVar(&version, "V", false, "Show version and exit")
 	flag.Parse()
 
-	if version {
+	if version || verbose {
 		fmt.Printf("tproxy-go v%s https://github.com/seud0nym/tproxy-go\n", appVersion)
-		os.Exit(0)
+		if version {
+			os.Exit(0)
+		}
 	}
 
 	logging(console)
-
-	log.Printf("tproxy-go v%s https://github.com/seud0nym/tproxy-go\n", appVersion)
 
 	tcpListeners, udpListeners := parseRules()
 	if len(tcpListeners) > 0 || len(udpListeners) > 0 {
